@@ -63,8 +63,9 @@ decodeURIComponent(URIstring); // 以组件形式解码url
 
 ### 实用方法
 ```javascript
-[...Array(3).keys()] // 创建特定大小的数组[0, 1, 2]
+[...Array(3).keys()] // 创建特定大小的数组[0, 1, 2...]
 (arr) => arr.slice().sort(() => Math.random() - 0.5) // 随机打乱数组
+Array.from({length: 5}).fill(item) // 创建特定大小的数组[item, item, item...]
 ```
 
 ### CSS常用代码
