@@ -1,6 +1,6 @@
 ---
 title: 游戏记录
-tags: record
+tags: 游戏
 date: 2020-08-25 16:38:27
 ---
 

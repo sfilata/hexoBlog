@@ -1,7 +1,8 @@
 ---
 title: 接口管理与Mock
 date: 2020-03-31 15:18:59
-tags:
+tags: 技术
+categories: 编程
 ---
 
 ### 1. 接口管理

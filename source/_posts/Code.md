@@ -1,7 +1,8 @@
 ---
 title: 常用代码整理
 date: 2020-03-31 15:18:22
-tags:
+tags: 技术
+categories: 编程
 ---
 ### javascript常用代码
 #### 字符串相关

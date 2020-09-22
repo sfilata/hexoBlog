@@ -41,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -64,7 +64,12 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  编程: Programming
+  生活: Life
+  其他: Other
 tag_map:
+  游戏: game
+  技术: tech
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta

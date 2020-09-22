@@ -1,7 +1,8 @@
 ---
 title: 一个提升开发效率的CLI工具
 date: 2020-03-31 15:17:55
-tags:
+tags: 技术
+categories: 编程
 ---
 ##### 用到的工具：
 commander.js

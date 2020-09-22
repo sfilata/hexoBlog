@@ -1,6 +1,6 @@
 ---
 title: 心情疏导
-tags: draft
+categories: 生活
 date: 2020-03-31 15:54:02
 ---
 

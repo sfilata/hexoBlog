@@ -1,7 +1,8 @@
 ---
 title: VScode常用配置以及使用技巧
 date: 2020-03-31 15:19:30
-tags:
+tags: 技术
+categories: 编程
 ---
 
 ### 1. 代码片段
