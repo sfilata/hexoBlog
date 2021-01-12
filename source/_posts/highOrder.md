@@ -18,7 +18,7 @@ Once函数使传入的函数只会运行一次，用于单例模式初始化，�
 ```javascript
 /**
  * Only allow the function run once
- * @param {[Function]} fun The function need to be changed 
+ * @param {[Function]} fun The function need to be changed
  */
 function once(fun) {
   return function(...args) {
@@ -36,7 +36,7 @@ throttle函数，即节流函数。在特定时间里只运行一次，丢弃之
 ```javascript
 /**
  * Only run once in the specified time range.
- * @param {[Function]} fun The function need to be changed 
+ * @param {[Function]} fun The function need to be changed
  * @param {[Number]} ms The time need to be throttle
  */
 function throttle(fun, ms) {
@@ -58,7 +58,7 @@ function throttle(fun, ms) {
 ```javascript
 /**
  * Only run the last time in the specified time range.
- * @param {[Function]} fun The function need to be changed 
+ * @param {[Function]} fun The function need to be changed
  * @param {[Number]} ms The time need to be debounced
  */
 function debounce(fun, ms) {
@@ -79,12 +79,40 @@ function debounce(fun, ms) {
 setTimeout函数的Promise版重新组织方式
 ```javascript
 /**
- * 
+ *
  * @param {number} duration The time need to waiting.
  */
 function wait(duration) {
   return new Promise((resolve, reject) => {
     setTimeout(resolve, duration);
+  })
+}
+```
+
+### retry函数
+返回一个Promise,会重试n次后再返回失败
+```javascript
+/**
+ *
+ * @param {Promise} promise The Promise need to be wrapped
+ * @param {number} times The times should be retried
+ */
+function retry(promise, times) {
+  return new Promise((resolve, reject) => {
+    function loop() {
+      const tempPromise = Promise.resolve(promise)
+      tempPromise.then(res => {
+        resolve(res)
+      }).catch(e => {
+        if (times--) {
+          console.log('failing')
+          loop()
+        } else {
+          reject(e)
+        }
+      })
+    }
+    loop();
   })
 }
 ```
