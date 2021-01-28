@@ -32,5 +32,9 @@
   <% if (config.highlight.enable){ %>
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   <% } %>
+  <% if (config.live2d.enable){ %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <%- js('live2d/autoload.js') %>
+  <% } %>
   <%- css('css/style') %>
 </head>
