@@ -201,9 +201,51 @@ function loadWidget(config) {
 			});
 	})();
 
-	async function loadModelList() {
-		const response = await fetch(`${cdnPath}model_list.json`);
-		modelList = await response.json();
+	function loadModelList() {
+    modelList = {
+      "models": [
+        "Potion-Maker/Pio",
+        "Potion-Maker/Tia",
+        "bilibili-live/22",
+        "bilibili-live/33",
+        [
+          "ShizukuTalk/shizuku-48",
+          "ShizukuTalk/shizuku-pajama"
+        ],
+        [
+          "HyperdimensionNeptunia/neptune_classic",
+          "HyperdimensionNeptunia/nepnep",
+          "HyperdimensionNeptunia/neptune_santa",
+          "HyperdimensionNeptunia/nepmaid",
+          "HyperdimensionNeptunia/nepswim",
+          "HyperdimensionNeptunia/noir_classic",
+          "HyperdimensionNeptunia/noir",
+          "HyperdimensionNeptunia/noir_santa",
+          "HyperdimensionNeptunia/noireswim",
+          "HyperdimensionNeptunia/blanc_classic",
+          "HyperdimensionNeptunia/blanc_normal",
+          "HyperdimensionNeptunia/blanc_swimwear",
+          "HyperdimensionNeptunia/vert_classic",
+          "HyperdimensionNeptunia/vert_normal",
+          "HyperdimensionNeptunia/vert_swimwear",
+          "HyperdimensionNeptunia/nepgear",
+          "HyperdimensionNeptunia/nepgear_extra",
+          "HyperdimensionNeptunia/nepgearswim",
+          "HyperdimensionNeptunia/histoire",
+          "HyperdimensionNeptunia/histoirenohover"
+        ],
+        "KantaiCollection/murakumo"
+      ],
+      "messages": [
+        "来自 Potion Maker 的 Pio 酱 ~",
+        "来自 Potion Maker 的 Tia 酱 ~",
+        "来自 Bilibili Live 的 22 哦 ~",
+        "来自 Bilibili Live 的 33 的说",
+        "Shizuku Talk ！这里是 Shizuku ~",
+        "Nep! Nep! 超次元游戏：海王星 系列",
+        "艦隊これくしょん / 叢雲(むらくも)"
+      ]
+    };
 	}
 
 	async function loadModel(modelId, modelTexturesId, message) {
@@ -211,7 +253,7 @@ function loadWidget(config) {
 		localStorage.setItem("modelTexturesId", modelTexturesId);
 		showMessage(message, 4000, 10);
 		if (useCDN) {
-			if (!modelList) await loadModelList();
+			if (!modelList) loadModelList();
 			const target = randomSelection(modelList.models[modelId]);
 			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
 		} else {
@@ -224,7 +266,7 @@ function loadWidget(config) {
 		const modelId = localStorage.getItem("modelId"),
 			modelTexturesId = localStorage.getItem("modelTexturesId");
 		if (useCDN) {
-			if (!modelList) await loadModelList();
+			if (!modelList) loadModelList();
 			const target = randomSelection(modelList.models[modelId]);
 			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
 			showMessage("我的新衣服好看嘛？", 4000, 10);
@@ -242,7 +284,7 @@ function loadWidget(config) {
 	async function loadOtherModel() {
 		let modelId = localStorage.getItem("modelId");
 		if (useCDN) {
-			if (!modelList) await loadModelList();
+			if (!modelList) loadModelList();
 			const index = (++modelId >= modelList.models.length) ? 0 : modelId;
 			loadModel(index, 0, modelList.messages[index]);
 		} else {
